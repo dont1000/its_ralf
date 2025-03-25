@@ -1,14 +1,17 @@
 export default defineEventHandler(async (event) => {
+  interface ChatRequest {
+    threadId?: string;
+    message: string;
+  }
   try {
     // Parse the incoming request
-    const body = await readBody(event);
-    const message = body.message;
-    let threadId = body.threadId;
+    const body: ChatRequest = await readBody(event);
+    let {message, threadId} = body
     let runId:string = "";
 
     // If no threadId is provided, open a new conversation thread using your assistant ID.
     if (!threadId) {
-      console.log("--------", threadId);
+      console.log("-------- new threadId", threadId);
       const threadResponse = await fetch("https://api.openai.com/v1/threads", {
         method: "POST",
         headers: {
@@ -26,6 +29,7 @@ export default defineEventHandler(async (event) => {
     }
 
     console.log("--------initial thread id", threadId, "   ", message);
+     console.log("--------OPENAI_API_KEY", process.env.OPENAI_API_KEY);
     // Now, send the user's message along with the threadId to the ChatGPT API.
     const userMessageResponse = await fetch(
       `https://api.openai.com/v1/threads/${threadId}/messages`,
@@ -66,16 +70,17 @@ export default defineEventHandler(async (event) => {
     );
     const responseRunData = await responseRun.json();
     runId = responseRunData.id;
-    console.log("---run called", responseRunData.id);
+    console.log("---run called", runId);
 
     async function pollRunStatus(
-      threadId:string,
+      threadId:string|undefined,
       runId:string,
       delay = 2000,
       maxAttempts = 10
     ) {
       let attempts = 0;
       while (attempts < maxAttempts) {
+        console.log("pollRunStatus attempts ", attempts);
         const response = await fetch(
           `https://api.openai.com/v1/threads/${threadId}/runs/${runId}`,
           {
@@ -97,6 +102,7 @@ export default defineEventHandler(async (event) => {
         }
 
         // Wait before trying again.
+        console.log("runStatusData", runStatusData.status);
         await new Promise((resolve) => setTimeout(resolve, delay));
         attempts++;
       }
@@ -124,7 +130,7 @@ export default defineEventHandler(async (event) => {
           }
         );
         const data = await response.json();
-        console.log("------------", attempts, "-------");
+        console.log("pollForAssistantMessage", attempts, "-------");
 
         if (data.data.length > 0 && data.data[0].role === "assistant") {
           console.log("inner loop", data.data[0]);
@@ -138,14 +144,15 @@ export default defineEventHandler(async (event) => {
         "Assistant message not received within the expected time."
       );
     }
-
-    const responseData = await pollForAssistantMessage(threadId);
+    console.log("----------call responseData with thread id", threadId);
+    let responseData;
+    if (threadId) {responseData = await pollForAssistantMessage(threadId)};
 
     const reply = responseData.content[0].text.value;
-    console.log("responsedata-content", reply);
+    console.log("----------responsedata-content", reply);
     return { reply, threadId };
   } catch (error) {
-    console.error("Error in /api/chat:", error);
+    console.error("Error in /api/chat server:", error);
     event.res.statusCode = 500;
     return { reply: "I'm sorry, something went wrong on the server." };
   }
