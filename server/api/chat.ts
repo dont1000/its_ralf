@@ -71,11 +71,11 @@ export default defineEventHandler(async (event) => {
     const responseRunData = await responseRun.json();
     runId = responseRunData.id;
     console.log("---run called", runId);
-
+    let runStatusData
     async function pollRunStatus(
       threadId:string|undefined,
       runId:string,
-      delay = 2000,
+      delay = 800,
       maxAttempts = 10
     ) {
       let attempts = 0;
@@ -91,7 +91,9 @@ export default defineEventHandler(async (event) => {
             },
           }
         );
-        const runStatusData = await response.json();
+
+        runStatusData = await response.json();
+        console.log("runStatusData", runStatusData.status);
 
         // Check if the run status indicates completion.
         if (
@@ -102,7 +104,7 @@ export default defineEventHandler(async (event) => {
         }
 
         // Wait before trying again.
-        console.log("runStatusData", runStatusData.status);
+       
         await new Promise((resolve) => setTimeout(resolve, delay));
         attempts++;
       }
