@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
       "https://cloud.flowiseai.com/api/v1/prediction/34cad011-19bc-4922-9aba-f6002a69168d",
       {
           headers: {
-               Authorization: "Bearer ${process.env.FLOWWISE_API_KEY}",
+               Authorization: `Bearer ${process.env.FLOWWISE_API_KEY}`,
               "Content-Type": "application/json"
           },
           method: "POST",
