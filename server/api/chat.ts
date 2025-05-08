@@ -5,8 +5,9 @@ export default defineEventHandler(async (event) => {
   try {
     // Parse the incoming request
     const body: ChatRequest = await readBody(event);
+    console.log("body",body)
     let {message} = body
-    console.log("message", message)
+ 
     const response = await fetch(
       "https://cloud.flowiseai.com/api/v1/prediction/34cad011-19bc-4922-9aba-f6002a69168d",
       {

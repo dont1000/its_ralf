@@ -1,102 +1,167 @@
 <template>
-  <div class="container">
-    <div class="header">
-            <span>Ralf Braitling</span><span>  <a href="mailto:work@braitling.de"
-            ><cst-button v-if="!isMobile" class="cst-button"
-              ><span class="primary">@</span> Contact</cst-button
+  <div>
+    <ChatMobile
+      v-if="isMobile && openMobileChat"
+      :messages="messages"
+      :isLoading="isLoading"
+      @submit="handleSubmitMobile"
+      v-model:openMobileChat="openMobileChat"
+    />
+    <div class="container" v-if="!openMobileChat">
+      <div class="header">
+        <span>Ralf Braitling</span
+        ><span>
+          <a href="mailto:work@braitling.de"
+            ><cst-button class="cst-button"
+              ><span class="primary">@</span>Contact</cst-button
             ></a
-          ></span></div>
-    <button
-      v-if="openMobileChat"
-      @click="openMobileChat = false"
-      class="btn-back"
-    >
-      <img src="~/assets/images/arrow-left.svg" alt="Back" />
-    </button>
-    <div class="two-column-layout">
-      <div
-        class="left-column"
-        v-if="(isMobile && !openMobileChat) || !isMobile"
-      >
-        <div class="content">
-          <h1>
-            <div class="secondary">Hi I'm AI-Ralf,</div>
-            nice to meet you
-          </h1>
-          <div>
-            <!-- <p>
+          ></span
+        >
+      </div>
+
+      <div class="two-column-layout" v-if="!openMobileChat">
+        <div
+          class="left-column"
+          v-if="(isMobile && !openMobileChat) || !isMobile"
+        >
+          <div class="content">
+            <h1>
+              <div class="secondary">Hi I'm AI-Ralf,</div>
+              nice to meet you
+            </h1>
+            <div>
+              <!-- <p>
               seit 20 Jahren+ im Web-Business – von Agenturen über Startups bis
               zum eigenen Business.
             </p> -->
 
-            <p>
-              With over 20 years of experience in the web business – including work in agencies, startups, and running my own web development business – I bring a broad and practical perspective to digital projects.</p>
-<p>I’m an experienced frontend developer, team lead, and certified product owner with a passion for agile product development and user-centered solutions.</p>
-<p>With a solid technical foundation, an agile mindset, and a strong sense for what’s feasible, I help teams and products move forward – always with the user in focus.</p>
-<p class="primary"><span class="cta-text"><b>Curious to know more?</b> <span> ask AI-Ralf anything about my work, experience, or skills.</span></span></p>
-          </div>
-
-          <div class="chat-trigger" v-if="isMobile">
-            <img
-              src="~/assets/images/background image.png"
-              alt="Background"
-            /><img />
-            <button @click="openMobileChat = true">open Chat</button>
-          </div>
-        
-        </div>
-      </div>
-
-      <div
-        class="right-column"
-        v-if="(isMobile && openMobileChat) || !isMobile"
-      >
-        <div class="chat-container">
-          <div class="messages">
-            <div v-if="isLoading" class="message assistant loading">
-              <div class="dot" />
-              <div class="dot" />
-              <div class="dot" />
+              <p>
+                With over 20 years of experience in the web business – including
+                work in agencies, startups, and running my own web development
+                business – I bring a broad and practical perspective to digital
+                projects.
+              </p>
+              <p>
+                I’m an experienced frontend developer, team lead, and certified
+                product owner with a passion for agile product development and
+                user-centered solutions.
+              </p>
+              <p>
+                With a solid technical foundation, an agile mindset, and a
+                strong sense for what’s feasible, I help teams and products move
+                forward – always with the user in focus.
+              </p>
+              <p class="primary">
+                <span class="cta-text"
+                  ><b>Curious to know more?</b>
+                  <span>
+                    ask AI-Ralf anything about my work, experience, or
+                    skills.</span
+                  ></span
+                >
+              </p>
             </div>
+
             <div
-              v-for="(msg, index) in messages"
-              :key="index"
-              :class="['message', msg.role]"
+              class="chat-trigger"
+              v-if="isMobile"
+              @click="openMobileChat = true"
             >
-              <div
-                class="message-content"
-                :class="{ expanded: expandedMessages[index] }"
-              >
-                {{ msg.question }}
-              </div>
-              <button
-                v-if="isMessageTooLong(msg.question)"
-                class="more-button"
-                @click="toggleMessage(index)"
-              >
-                {{ expandedMessages[index] ? "Less" : "More" }}
-              </button>
+              <img
+                src="~/assets/images/background-image.png"
+                alt="Background"
+              /><img />
+              <button>open Chat</button>
             </div>
           </div>
+        </div>
 
- 
-          <form @submit.prevent="handleSubmit" class="chat-form">
-            <div class="input-container">
-              <input
-                v-model="input"
-                type="text"
-                placeholder="Type your question..."
-                :disabled="isLoading"
-              />
-              <img
-                src="@/assets/images/Vector.svg"
-                alt="Send"
-                class="send-icon"
-                @click="handleSubmit"
-              />
+        <div class="right-column" v-if="!isMobile">
+          <div class="chat-container">
+            <div class="messages">
+              <div v-if="isLoading" class="message assistant loading">
+                <div class="dot" />
+                <div class="dot" />
+                <div class="dot" />
+              </div>
+            
+
+             
+              
+               <!-- <div class="message assistant">
+                <div class="message-content">
+                  be patient i have to think bout your question,
+                  the answer can take a couple of seconds 🙂
+                </div>
+               </div>
+               <div class="message assistant">
+                <div class="message-content">
+                  Hello I'm AI-Ralf<br>
+                  ask me anything about
+                  my work, experience, or skills
+                </div>
+               </div> -->
+
+              
+                
+             
+            
+           
+
+              <div
+                v-for="(msg, index) in messages"
+                :key="index"
+                :class="['message', msg.role]"
+              >
+                <div
+                  class="message-content"
+                  :class="{ expanded: expandedMessages[index] }"
+                >
+                  {{ msg.text }}
+                </div>
+                <button
+                  v-if="isMessageTooLong(msg.text)"
+                  class="expand-button"
+                  @click="toggleMessage(index)"
+                >
+                  {{ expandedMessages[index] ? "Less" : "More" }}
+                </button>
+              </div>
+              <div class="message assistant">
+                <div class="message-content">
+                 Just a heads-up:
+Some answers might take a few seconds—I'm thinking carefully so you get a good one. 🙂
+                </div>
+               </div>
+               <div class="message assistant">
+                <div class="message-content">
+                  👋 Hi, I'm AI-Ralf!<br>
+                  Ask me anything about my work, experience, or skills—I'm here to help
+                </div>
+               </div>
             </div>
-          </form>
-          <!-- </div> -->
+
+            
+
+            <form @submit.prevent="handleSubmit" class="chat-form">
+              <div class="input-container">
+                <input
+                  v-model="input"
+                  ref="inputRef"
+                  type="text"
+                  placeholder="Type your question..."
+                  :disabled="isLoading"
+                  @keyup.enter="callOnEnter"
+                />
+                <img
+                  src="@/assets/images/Vector.svg"
+                  alt="Send"
+                  class="send-icon"
+                  @click="handleSubmit"
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -104,12 +169,8 @@
 </template>
 
 <script setup lang="ts">
-// Message interface
-interface Message {
-  role: "user" | "assistant";
-  question: string;
-}
-
+import { ref, onMounted } from "vue";
+import type { Message } from "@/types/chat";
 interface ChatResponse {
   text: string;
 }
@@ -118,6 +179,7 @@ interface ChatRequest {
   message: string;
 }
 
+const inputRef = ref<HTMLInputElement | null>(null);
 // Conversation state
 const messages = ref<Message[]>([]);
 const input = ref<string>("");
@@ -135,41 +197,59 @@ const updateIsMobile = () => {
 onMounted(() => {
   updateIsMobile(); // Initial check
   window.addEventListener("resize", updateIsMobile);
+  inputRef.value?.focus();
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", updateIsMobile);
 });
 
+const handleSubmitMobile = async (message: string) => {
+  updateChat(message);
+};
+
 const handleSubmit = async (): Promise<void> => {
   const message: string = input.value;
-  const userMessage: Message = { role: "user", question: message };
-  messages.value.unshift(userMessage); // add prompt to local messages list
   input.value = "";
-  isLoading.value = true;
+  updateChat(message);
+};
 
+const callOnEnter = () => {
+  handleSubmit();
+};
+
+const updateChat = async (message: string) => {
+  if (message.trim() == "") {
+    return;
+  }
+  messages.value.unshift({
+    role: "user",
+    text: message,
+  });
+  const response = await fetchAnswer(message);
+  // const response = {
+  //   text: "Dies ist eine Testantwort von Ralf, lange Antwort, die mehr als 100px hoch ist. Dies lange Antwort, die mehr als 100px hoch ist Dies ist eine Testantwort von Ralf, lange Antwort, die mehr als 100px hoch ist. Dies lange Antwort, die mehr als 100px hoch ist Dies ist eine Testantwort von Ralf, lange Antwort, die mehr als 100px hoch ist. Dies lange Antwort, die mehr als 100px hoch ist",
+  // };
+
+  messages.value.unshift({
+    role: "assistant",
+    text: response.text,
+  });
+};
+
+const fetchAnswer = async (message: string): Promise<ChatResponse> => {
+  isLoading.value = true;
   try {
-    // Send prompt and current threadId (if any) to your server endpoint
     const response: ChatResponse = await $fetch("/api/chat", {
       method: "POST",
       body: {
         message: message,
       },
     });
-
-    //add response to local messages list
-    const assistantMessage: Message = {
-      role: "assistant",
-      question: response.text,
-    };
-    messages.value.unshift(assistantMessage);
-    console.log("messages", messages.value);
+    return response;
   } catch (error) {
     console.error("Error fetching assistant response:", error);
-    // messages.value.push({
-    //   role: "assistant",
-    //   content: "I'm sorry, something went wrong. Please try again.",
-    // });
+    throw error;
   } finally {
     isLoading.value = false;
   }
@@ -242,7 +322,7 @@ const toggleMessage = (index: number) => {
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  margin-bottom:3rem;
+  margin-bottom: 3rem;
 
   img {
     width: 12rem;
@@ -284,7 +364,6 @@ const toggleMessage = (index: number) => {
   height: 15px;
 }
 
-
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -299,12 +378,12 @@ const toggleMessage = (index: number) => {
   content: "";
   position: absolute;
   top: 2rem;
-  width: 85%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    45.7% 54.7% at 50% 50%,
+    40.7% 50.7% at 50% 50%,
     #0396ff 0%,
-    rgba(255, 243, 227, 0.44) 100%
+    rgba(255, 243, 227, 0%) 100%
   );
   background-repeat: no-repeat;
   background-size: contain;
@@ -312,6 +391,7 @@ const toggleMessage = (index: number) => {
   left: 0;
   right: 0;
   margin: 0 auto;
+  pointer-events: none;
 }
 
 .chat-container::before {
@@ -323,7 +403,7 @@ const toggleMessage = (index: number) => {
   bottom: 1rem;
   width: 50%;
   height: 50%;
-  background-image: url("@/assets/images/background image.png");
+  background-image: url("@/assets/images/background-image.png");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -345,7 +425,7 @@ const toggleMessage = (index: number) => {
 
 .message {
   position: relative;
-  padding: 1.2rem .9rem;
+  padding: 1.2rem 0.9rem;
   margin-bottom: 2rem;
   min-width: 100px;
   max-width: 300px;
@@ -358,7 +438,6 @@ const toggleMessage = (index: number) => {
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
 }
-
 
 .message.user {
   background-color: #fff;
@@ -378,31 +457,31 @@ const toggleMessage = (index: number) => {
 }
 .message.user::after {
   content: "";
-position: absolute;
-bottom: 0px;
-left: -20px;
-width: 0;
-height: 0;
-border-style: solid;
-border-width: 20px 40px 0 0;
-border-color: transparent #fff transparent transparent;
-/* rotate: 0deg; */
-transform: rotate(0deg);
+  position: absolute;
+  bottom: 0px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 40px 0 0;
+  border-color: transparent #fff transparent transparent;
+  /* rotate: 0deg; */
+  transform: rotate(0deg);
 }
 
 .message.assistant::after {
   content: "";
-position: absolute;
-bottom: 0px;
-left: -35px;
-width: 0;
-height: 0;
-/* border: 3px solid red; */
-border-width: 30px 0 00px 30px;
-border-color: #0396ff transparent transparent transparent;
-border-width: 20px 50px 0px 0;
-border-color: transparent #0396ff transparent transparent;
-transform: rotate(0deg);
+  position: absolute;
+  bottom: 0px;
+  left: -35px;
+  width: 0;
+  height: 0;
+  /* border: 3px solid red; */
+  border-width: 30px 0 00px 30px;
+  border-color: #0396ff transparent transparent transparent;
+  border-width: 20px 50px 0px 0;
+  border-color: transparent #0396ff transparent transparent;
+  transform: rotate(0deg);
 }
 
 .message.assistant.loading {
@@ -482,7 +561,6 @@ transform: rotate(0deg);
   cursor: pointer;
 }
 
-
 .chat-form button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -496,7 +574,7 @@ transform: rotate(0deg);
 }
 
 .message-content {
-  max-height: 100px;
+  max-height: 97px;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
 }
@@ -505,7 +583,7 @@ transform: rotate(0deg);
   max-height: none;
 }
 
-.more-button {
+.expand-button {
   background: none;
   border: none;
   color: inherit;
@@ -515,15 +593,32 @@ transform: rotate(0deg);
   text-decoration: underline;
 }
 
+.cta-text {
+  margin-top: 3rem;
+  text-align: center;
+  display: block;
+}
+
+.cta-text-d {
+  align-self: center;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 9;
+  margin-top: 22%;
+  font-weight: 200;
+  font-size: 14px;
+}
+
 @media (max-width: 900px) {
-  .header{
-    font-size:20px;
+  .header {
+    font-size: 20px;
     padding: 1rem 2.5rem;
   }
   .two-column-layout {
     flex-direction: column;
-    padding:0;
-   
+    padding: 0;
   }
   .left-column {
     width: 100%;
@@ -532,15 +627,9 @@ transform: rotate(0deg);
     padding-right: 2.5rem;
   }
 
-  .cta-text {
-    margin-top:3rem;
-    text-align: center;
-    display:block
-  }
-
   .right-column {
     width: 100%;
-    height: calc(100vh - 140px);
+
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -549,17 +638,17 @@ transform: rotate(0deg);
   }
   .btn-back {
     display: flex;
+  }
 
+  .cta-text {
+    margin-top: 5rem;
   }
-  .cta-text{
-    margin-top:5rem;
-  }
-  .cta-text span{
-    display:block
+  .cta-text span {
+    display: block;
   }
   .chat-container {
-    height: calc(-180px + 100vh);
-    padding:0;
+    height: calc(-250px + 100vh);
+    padding: 0;
   }
 
   .input-container {
@@ -575,19 +664,19 @@ transform: rotate(0deg);
   }
   .message.user {
     margin-right: 0;
-    width:85%;
+    width: 85%;
     align-self: flex-start;
   }
   .message.message.assistant {
     margin-left: 0;
-    width:85%;
+    width: 85%;
     align-self: flex-end;
   }
 
   .message.user::after {
     bottom: 0px;
     right: -31px;
-    left:auto;
+    left: auto;
     border-width: 20px 0px 0px 50px;
     border-color: transparent transparent transparent #fff;
     transform: rotate(0deg);
@@ -595,11 +684,9 @@ transform: rotate(0deg);
   .btn-back {
     display: flex;
   }
-  .chat-trigger button  {
+  .chat-trigger button {
     width: 80%;
   }
-
-
 }
 
 @media (max-width: 410px) {
