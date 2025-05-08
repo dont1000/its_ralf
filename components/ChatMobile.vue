@@ -159,6 +159,7 @@ const toggleMessage = (index: number) => {
   background-color: rgb(255, 243, 227);
   z-index: 999;
   position: relative;
+  margin-bottom: 2rem;
 }
 
 /*-----------input field---------------------*/

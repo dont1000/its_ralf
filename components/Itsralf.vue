@@ -595,21 +595,11 @@ const toggleMessage = (index: number) => {
 
 .cta-text {
   margin-top: 3rem;
-  text-align: center;
+ 
   display: block;
 }
 
-.cta-text-d {
-  align-self: center;
-  width: 300px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  z-index: 9;
-  margin-top: 22%;
-  font-weight: 200;
-  font-size: 14px;
-}
+
 
 @media (max-width: 900px) {
   .header {
