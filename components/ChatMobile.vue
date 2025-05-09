@@ -182,7 +182,9 @@ const toggleMessage = (index: number) => {
   resize: none; 
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
+
 
 textarea:focus {
   outline: none;

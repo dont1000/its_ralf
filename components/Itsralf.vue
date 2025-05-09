@@ -26,7 +26,7 @@
         >
           <div class="content">
             <h1>
-              <div class="secondary">Hi I'm AI-Ralf,</div>
+              <div class="secondary">Hi I'm Ralf,</div>
               nice to meet you
             </h1>
             <div>
@@ -54,9 +54,9 @@
               <p class="primary">
                 <span class="cta-text"
                   ><b>Curious to know more?</b>
-                  <span>
-                    ask AI-Ralf anything about my work, experience, or
-                    skills.</span
+                  <p>
+                    ask AI-Ralf anything about work, experience, or
+                    skills.</p
                   ></span
                 >
               </p>
@@ -84,11 +84,8 @@
                 <div class="dot" />
                 <div class="dot" />
               </div>
-            
 
-             
-              
-               <!-- <div class="message assistant">
+              <!-- <div class="message assistant">
                 <div class="message-content">
                   be patient i have to think bout your question,
                   the answer can take a couple of seconds 🙂
@@ -101,12 +98,6 @@
                   my work, experience, or skills
                 </div>
                </div> -->
-
-              
-                
-             
-            
-           
 
               <div
                 v-for="(msg, index) in messages"
@@ -129,19 +120,18 @@
               </div>
               <div class="message assistant">
                 <div class="message-content">
-                 Just a heads-up:
-Some answers might take a few seconds—I'm thinking carefully so you get a good one. 🙂
+                  Just a heads-up: Some answers might take a few seconds—I'm
+                  thinking carefully so you get a good one. 🙂
                 </div>
-               </div>
-               <div class="message assistant">
+              </div>
+              <div class="message assistant">
                 <div class="message-content">
-                  👋 Hi, I'm AI-Ralf!<br>
-                  Ask me anything about my work, experience, or skills—I'm here to help
+                  👋 Hi, I'm AI-Ralf!<br />
+                  Ask me anything about my work, experience, or skills—I'm here
+                  to help
                 </div>
-               </div>
+              </div>
             </div>
-
-            
 
             <form @submit.prevent="handleSubmit" class="chat-form">
               <div class="input-container">
@@ -322,7 +312,7 @@ const toggleMessage = (index: number) => {
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 
   img {
     width: 12rem;
@@ -333,7 +323,7 @@ const toggleMessage = (index: number) => {
     background-color: #0396ff;
     color: white;
     padding: 0.75rem 1rem;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
     position: relative;
@@ -539,6 +529,20 @@ const toggleMessage = (index: number) => {
   margin-left: -3rem;
 }
 
+.input-container::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-image: url("/_nuxt/assets/images/callout.svg");
+  left: -115px;
+  top: -58px;
+  height: 112px;
+  background-repeat: no-repeat;
+  width: 120px;
+  background-size: contain;
+  z-index: 999;
+}
+
 .chat-form input {
   width: 100% !important; /* Force width to fill container */
   padding: 0.5rem;
@@ -595,11 +599,9 @@ const toggleMessage = (index: number) => {
 
 .cta-text {
   margin-top: 3rem;
- 
+
   display: block;
 }
-
-
 
 @media (max-width: 900px) {
   .header {
@@ -632,6 +634,7 @@ const toggleMessage = (index: number) => {
 
   .cta-text {
     margin-top: 5rem;
+    text-align: center;
   }
   .cta-text span {
     display: block;
