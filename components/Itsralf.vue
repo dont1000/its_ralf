@@ -53,12 +53,10 @@
               </p>
               <p class="primary">
                 <span class="cta-text"
-                  ><b>Curious to know more?</b>
-                  <p>
+                  ><b>Curious to know more?</b><br>
                     ask AI-Ralf anything about work, experience, or
-                    skills.</p
-                  ></span
-                >
+                    skills.
+                  </span>
               </p>
             </div>
 
@@ -263,6 +261,11 @@ const toggleMessage = (index: number) => {
 </script>
 
 <style scoped>
+
+h1{
+  font-size:2.1rem;
+  line-height: 2.5rem;
+}
 .container {
   width: 100%;
   min-height: 100vh;
@@ -300,7 +303,7 @@ const toggleMessage = (index: number) => {
   align-items: center;
   flex-shrink: 0;
   color: #0396ff;
-  font-size: 28px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
@@ -533,7 +536,7 @@ const toggleMessage = (index: number) => {
   content: "";
   position: absolute;
   display: block;
-  background-image: url("/_nuxt/assets/images/callout.svg");
+  background-image: url("~/assets/images/callout.svg");
   left: -115px;
   top: -58px;
   height: 112px;
