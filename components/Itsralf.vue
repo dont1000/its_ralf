@@ -36,21 +36,15 @@
             </p> -->
 
               <p>
-                With over 20 years of experience in the web business – including
-                work in agencies, startups, and running my own web development
-                business – I bring a broad and practical perspective to digital
-                projects.
+                I’m Ralf – product thinker, team builder, and frontend developer with 20+ years in digital. I turn ideas into user-focused solutions.
               </p>
               <p>
-                I’m an experienced frontend developer, team lead, and certified
-                product owner with a passion for agile product development and
-                user-centered solutions.
+              I built this chatbot as a side project to share my background in a more interactive way.
               </p>
-              <p>
-                With a solid technical foundation, an agile mindset, and a
-                strong sense for what’s feasible, I help teams and products move
-                forward – always with the user in focus.
-              </p>
+             <!--  <p>
+                What drives me? Turning ideas into real, useful products. With a solid tech background, a collaborative mindset, and a feel for what’s feasible, I help teams move forward—without losing sight of the people we’re building for."
+
+              </p> -->
               <p class="primary">
                 <span class="cta-text"
                   ><b>Curious to know more?</b><br>
@@ -76,12 +70,16 @@
 
         <div class="right-column" v-if="!isMobile">
           <div class="chat-container">
-            <div class="messages">
+            <MessageBubble
+              :messages="messages"
+              :isLoading="isLoading"
+            />
+            <!-- <div class="messages">
               <div v-if="isLoading" class="message assistant loading">
                 <div class="dot" />
                 <div class="dot" />
                 <div class="dot" />
-              </div>
+              </div> -->
 
               <!-- <div class="message assistant">
                 <div class="message-content">
@@ -97,7 +95,7 @@
                 </div>
                </div> -->
 
-              <div
+              <!-- <div
                 v-for="(msg, index) in messages"
                 :key="index"
                 :class="['message', msg.role]"
@@ -129,7 +127,7 @@
                   to help
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <form @submit.prevent="handleSubmit" class="chat-form">
               <div class="input-container">
@@ -159,6 +157,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import type { Message } from "@/types/chat";
+import MessageBubble from './MessageBubble.vue';
 interface ChatResponse {
   text: string;
 }
@@ -223,6 +222,9 @@ const updateChat = async (message: string) => {
     role: "assistant",
     text: response.text,
   });
+
+  console.log("reponse", response);
+  console.log("messges", messages.value);
 };
 
 const fetchAnswer = async (message: string): Promise<ChatResponse> => {
@@ -601,7 +603,7 @@ h1{
 }
 
 .cta-text {
-  margin-top: 3rem;
+
 
   display: block;
 }

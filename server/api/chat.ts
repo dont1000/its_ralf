@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     let {message} = body
  
     const response = await fetch(
-      "https://cloud.flowiseai.com/api/v1/prediction/34cad011-19bc-4922-9aba-f6002a69168d",
+      "https://flowise-ob32.onrender.com/api/v1/prediction/1aa94af1-e393-46b0-b816-00d2551eac44",
       {
           headers: {
                Authorization: `Bearer ${process.env.FLOWWISE_API_KEY}`,
