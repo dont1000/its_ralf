@@ -74,61 +74,7 @@
               :messages="messages"
               :isLoading="isLoading"
             />
-            <!-- <div class="messages">
-              <div v-if="isLoading" class="message assistant loading">
-                <div class="dot" />
-                <div class="dot" />
-                <div class="dot" />
-              </div> -->
-
-              <!-- <div class="message assistant">
-                <div class="message-content">
-                  be patient i have to think bout your question,
-                  the answer can take a couple of seconds 🙂
-                </div>
-               </div>
-               <div class="message assistant">
-                <div class="message-content">
-                  Hello I'm AI-Ralf<br>
-                  ask me anything about
-                  my work, experience, or skills
-                </div>
-               </div> -->
-
-              <!-- <div
-                v-for="(msg, index) in messages"
-                :key="index"
-                :class="['message', msg.role]"
-              >
-                <div
-                  class="message-content"
-                  :class="{ expanded: expandedMessages[index] }"
-                >
-                  {{ msg.text }}
-                </div>
-                <button
-                  v-if="isMessageTooLong(msg.text)"
-                  class="expand-button"
-                  @click="toggleMessage(index)"
-                >
-                  {{ expandedMessages[index] ? "Less" : "More" }}
-                </button>
-              </div>
-              <div class="message assistant">
-                <div class="message-content">
-                  Just a heads-up: Some answers might take a few seconds—I'm
-                  thinking carefully so you get a good one. 🙂
-                </div>
-              </div>
-              <div class="message assistant">
-                <div class="message-content">
-                  👋 Hi, I'm AI-Ralf!<br />
-                  Ask me anything about my work, experience, or skills—I'm here
-                  to help
-                </div>
-              </div>
-            </div> -->
-
+           
             <form @submit.prevent="handleSubmit" class="chat-form">
               <div class="input-container">
                 <input
@@ -603,8 +549,6 @@ h1{
 }
 
 .cta-text {
-
-
   display: block;
 }
 
