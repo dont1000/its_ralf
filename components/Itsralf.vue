@@ -39,13 +39,14 @@
                 I’m Ralf – product thinker, team builder, and frontend developer with 20+ years in digital. I turn ideas into user-focused solutions.
               </p>
               <p>
-              I built this chatbot as a side project to share my background in a more interactive way.
+                Want to know more about me? Just talk to AI-Ralf—he can answer all your questions about my skills, career, and professional background.
               </p>
+              <p>I built this chatbot as a side project to share my background in a more interactive way. Perfect for recruiters or hiring teams.</p>
              <!--  <p>
                 What drives me? Turning ideas into real, useful products. With a solid tech background, a collaborative mindset, and a feel for what’s feasible, I help teams move forward—without losing sight of the people we’re building for."
 
               </p> -->
-              <p class="primary">
+              <p class="primary" v-if="isMobile">
                 <span class="cta-text"
                   ><b>Curious to know more?</b><br>
                     ask AI-Ralf anything about work, experience, or
