@@ -9,8 +9,9 @@
     />
     <div class="container" v-if="!openMobileChat">
       <div class="header">
-        <span>Ralf Braitling</span
-        ><span>
+        <span>RalfBot</span>
+        <span>Die smarte Art, Ralf kennenzulernen </span>
+        <span>
           <a href="mailto:work@braitling.de"
             ><cst-button class="cst-button"
               ><span class="primary">@</span>Contact</cst-button
@@ -26,8 +27,8 @@
         >
           <div class="content">
             <h1>
-              <div class="secondary">Hi I'm Ralf,</div>
-              nice to meet you
+              <div class="secondary">Hallo, ich bin Ralf. </div>
+              Schön, Sie kennenzulernen.
             </h1>
             <div>
               <!-- <p>
@@ -36,12 +37,13 @@
             </p> -->
 
               <p>
-                I’m Ralf – product thinker, team builder, and frontend developer with 20+ years in digital. I turn ideas into user-focused solutions.
+                Ich arbeite seit über 20 Jahren Arbeit ich an webbasierten Lösungen ;) - von der Entwicklung über Teamführung bis hin zur Rolle als Product Owner.
+                Heute liegt mein Fokus liegt heute auf digitaler Produktentwicklung, agile Prozesse zu leben und die Brücke zwischen Technik, Stakeholdern und Kunden zu schlagen.
               </p>
               <p>
-                Want to know more about me? Just talk to AI-Ralf—he can answer all your questions about my skills, career, and professional background.
+                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: RalfBot beantwortet Ihre Fragen zu meinen Skills, Projekten und meinem Werdegang
               </p>
-              <p>I built this chatbot as a side project to share my background in a more interactive way. Perfect for recruiters or hiring teams.</p>
+
              <!--  <p>
                 What drives me? Turning ideas into real, useful products. With a solid tech background, a collaborative mindset, and a feel for what’s feasible, I help teams move forward—without losing sight of the people we’re building for."
 
@@ -64,7 +66,7 @@
                 src="~/assets/images/background-image.png"
                 alt="Background"
               /><img />
-              <button>open Chat</button>
+              <button>mit Ralf sprechen</button>
             </div>
           </div>
         </div>
