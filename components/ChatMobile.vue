@@ -37,16 +37,10 @@
         </div>
      
       </div>
-      <div class="message assistant">
-                <div class="message-content">
-                 Just a heads-up:
-Some answers might take a few seconds—I'm thinking carefully so you get a good one. 🙂
-                </div>
-               </div>
                <div class="message assistant">
                 <div class="message-content">
-                  👋 Hi, I'm AI-Ralf!<br>
-                  Ask me anything about my work, experience, or skills—I'm here to help
+                   👋 Hi, ich beantworte dir gerne Fragen zu mir und meiner Karriere. 
+
                 </div>
                </div>
     </div>

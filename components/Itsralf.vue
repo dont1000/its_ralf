@@ -266,7 +266,7 @@ h1{
 .subline{
   font-size: 0.8rem;
   font-weight: 400;
-  color:#fff
+  color:#000;
 }
 
 .chat-trigger {

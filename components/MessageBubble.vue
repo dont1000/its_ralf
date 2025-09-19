@@ -25,26 +25,10 @@
         {{ expandedMessages[index] ? "Less" : "More" }}
       </button>
     </div>
+  
     <div class="message assistant">
       <div class="message-content">
-       Auf was sind sie besonders stolz?
-      </div>
-    </div>
-    <div class="message assistant">
-      <div class="message-content">
-       Wie reagieren sie unter Druck?
-      </div>
-    </div>
-    <div class="message assistant">
-      <div class="message-content">
-       Was sind deine Stärken?
-      </div>
-    </div>
-    <div class="message assistant">
-      <div class="message-content">
-        👋 Hi, ich beantworte dir gerne Fragen zu mir und meinem Werdegang, </br>
-        wie zum Beispiel:
-
+        👋 Hi, ich beantworte dir gerne Fragen zu mir und meiner Karriere. 
       </div>
     </div>
   </div>
