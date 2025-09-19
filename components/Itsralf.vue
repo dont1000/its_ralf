@@ -9,8 +9,8 @@
     />
     <div class="container" v-if="!openMobileChat">
       <div class="header">
-        <span>RalfBot</span>
-        <span>Die smarte Art, Ralf kennenzulernen </span>
+        <span class="brand">RalfBot <div class="subline">Die smarte Art, Ralf kennenzulernen </div></span>
+       
         <span>
           <a href="mailto:work@braitling.de"
             ><cst-button class="cst-button"
@@ -27,8 +27,8 @@
         >
           <div class="content">
             <h1>
-              <div class="secondary">Hallo, ich bin Ralf. </div>
-              Schön, Sie kennenzulernen.
+              <div class="secondary">Hallo, ich bin Ralf.
+              Schön, Sie kennenzulernen. </div>
             </h1>
             <div>
               <!-- <p>
@@ -259,6 +259,14 @@ h1{
   font-weight: 700;
   line-height: 20px;
   justify-content: space-between;
+}
+.brand{
+  font-family: 'Quicksand', sans-serif;
+}
+.subline{
+  font-size: 0.8rem;
+  font-weight: 400;
+  color:#fff
 }
 
 .chat-trigger {
