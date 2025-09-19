@@ -27,15 +27,24 @@
     </div>
     <div class="message assistant">
       <div class="message-content">
-        Just a heads-up: Some answers might take a few seconds—I'm
-        thinking carefully so you get a good one. 🙂
+       Auf was sind sie besonders stolz?
       </div>
     </div>
     <div class="message assistant">
       <div class="message-content">
-        👋 Hi, I'm AI-Ralf!<br />
-        Ask me anything about my work, experience, or skills—I'm here
-        to help
+       Wie reagieren sie unter Druck?
+      </div>
+    </div>
+    <div class="message assistant">
+      <div class="message-content">
+       Was sind deine Stärken?
+      </div>
+    </div>
+    <div class="message assistant">
+      <div class="message-content">
+        👋 Hi, ich beantworte dir gerne Fragen zu mir und meinem Werdegang, </br>
+        wie zum Beispiel:
+
       </div>
     </div>
   </div>
