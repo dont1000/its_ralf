@@ -266,7 +266,7 @@ h1{
   width: 120px;
   height: 120px;
   font-family: 'Quicksand', sans-serif;
-  background-image: url('~/assets/images/logopng');
+  background-image: url('~/assets/images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
