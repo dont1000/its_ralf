@@ -263,13 +263,9 @@ h1{
   justify-content: space-between;
 }
 .brand{
-  width: 120px;
-  height: 120px;
+ 
   font-family: 'Quicksand', sans-serif;
-  background-image: url('~/assets/images/logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+
 }
 .subline{
   font-size: 0.8rem;
