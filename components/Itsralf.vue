@@ -37,11 +37,13 @@
             </p> -->
 
               <p>
-                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: RalfBot beantwortet Ihre Fragen zu meinen Skills, Projekten und meinem Werdegang
-              </p>
-              <p>
                 Ich arbeite seit über 20 Jahren an webbasierten Lösungen ;) - von der Entwicklung über Teamführung bis hin zur Rolle als Product Owner.
                 Heute liegt mein Fokus auf digitaler Produktentwicklung, agile Prozesse zu leben und die Brücke zwischen Technik, Stakeholdern und Kunden zu schlagen.
+
+              </p>
+              <p>
+                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: RalfBot beantwortet Ihre Fragen zu meinen Skills, Projekten und meinem Werdegang
+
               </p>
 
              <!--  <p>
@@ -84,7 +86,7 @@
                   v-model="input"
                   ref="inputRef"
                   type="text"
-                  placeholder="Type your question..."
+                  placeholder="Frage eingeben..."
                   :disabled="isLoading"
                   @keyup.enter="callOnEnter"
                 />
@@ -261,7 +263,13 @@ h1{
   justify-content: space-between;
 }
 .brand{
+  width: 120px;
+  height: 120px;
   font-family: 'Quicksand', sans-serif;
+  background-image: url('~/assets/images/logopng');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .subline{
   font-size: 0.8rem;
