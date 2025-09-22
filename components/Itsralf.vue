@@ -27,8 +27,9 @@
         >
           <div class="content">
             <h1>
-              <div class="secondary">Hallo, ich bin Ralf.</br>
-              Schön, Sie kennenzulernen. </div>
+              <div class="secondary">Hallo, ich bin Ralf.
+              <div>Schön, Sie kennenzulernen.</div> 
+            </div>
             </h1>
             <div>
               <!-- <p>
@@ -38,12 +39,9 @@
 
               <p>
                 Ich arbeite seit über 20 Jahren an webbasierten Lösungen ;) - von der Entwicklung über Teamführung bis hin zur Rolle als Product Owner.
-                Heute liegt mein Fokus auf digitaler Produktentwicklung, agile Prozesse zu leben und die Brücke zwischen Technik, Stakeholdern und Kunden zu schlagen.
-
               </p>
               <p>
-                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: RalfBot beantwortet Ihre Fragen zu meinen Skills, Projekten und meinem Werdegang
-
+                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: Mit RalfBot erhalten Sie direkt Antworten auf die gängigsten Interviewfragen zu Stärken, Motivation und Erfahrung.
               </p>
 
              <!--  <p>
