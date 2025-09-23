@@ -48,13 +48,13 @@
                 What drives me? Turning ideas into real, useful products. With a solid tech background, a collaborative mindset, and a feel for what’s feasible, I help teams move forward—without losing sight of the people we’re building for."
 
               </p> -->
-              <p class="primary" v-if="isMobile">
+               <!-- <p class="primary" v-if="isMobile">
                 <span class="cta-text"
                   ><b>Curious to know more?</b><br>
                     ask AI-Ralf anything about work, experience, or
                     skills.
                   </span>
-              </p>
+              </p> -->
             </div>
 
             <div
