@@ -41,7 +41,7 @@
                 Ich arbeite seit über 20 Jahren an webbasierten Lösungen ;) - von der Entwicklung über Teamführung bis hin zur Rolle als Product Owner.
               </p>
               <p>
-                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: Mit RalfBot erhalten Sie direkt Antworten auf die gängigsten Interviewfragen zu Stärken, Motivation und Erfahrung.
+                Damit Sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: Mit RalfBot erhalten Sie direkt Antworten auf die gängigsten <span class="highlight">Interviewfragen</span> zu <span class="highlight">Stärken</span>, <span class="highlight">Motivation</span> und <span class="highlight">Erfahrung</span>.
               </p>
 
              <!--  <p>
@@ -271,6 +271,11 @@ h1{
   color:#000;
 }
 
+.highlight{
+  background-color: rgba(3, 150, 255, 0.25);
+  padding:0.1em 0.3em; 
+}
+
 .chat-trigger {
   display: flex;
   flex-direction: column;
@@ -498,11 +503,11 @@ h1{
   position: absolute;
   display: block;
   background-image: url("~/assets/images/callout.svg");
-  left: -115px;
-  top: -58px;
-  height: 112px;
+  left: -157px;
+  top: -86px;
+  height: 150px;
   background-repeat: no-repeat;
-  width: 120px;
+  width: 200px;
   background-size: contain;
   z-index: 999;
 }

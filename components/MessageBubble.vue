@@ -26,7 +26,7 @@
       </button>
     </div>
   
-    <div class="message assistant">
+    <div class="message assistant" style="margin-bottom:200px;">
       <div class="message-content">
         👋 Hi, ich beantworte dir gerne Fragen zu mir und meiner Karriere. 
       </div>
