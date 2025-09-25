@@ -27,12 +27,12 @@
     </div>
     <div class="message assistant" style="margin-bottom:200px;">
       <div class="message-content">
-        oder: Was sind Ihre Stärken? 
+        oder: Was sind deine Stärken? 
       </div>
     </div>
     <div class="message assistant" >
       <div class="message-content">
-        Zum Beispiel: Welche Projekte waren Ihnen wichtig?
+        Zum Beispiel: Was war ein tolles Projekt?
       </div>
     </div>
     <div class="message assistant" >
