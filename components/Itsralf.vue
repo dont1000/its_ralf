@@ -9,7 +9,7 @@
     />
     <div class="container" v-if="!openMobileChat">
       <div class="header">
-        <span class="brand">RalfBot <div class="subline">Die smarte Art, Ralf kennenzulernen </div></span>
+        <span class="brand">RalfBot <span style="font-size:11px;font-weight:300;"> beta</span> <div class="subline">Die smarte Art, Ralf kennenzulernen </div></span>
        
         <span>
           <a href="mailto:work@braitling.de"
