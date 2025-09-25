@@ -27,7 +27,7 @@
     </div>
     <div class="message assistant" style="margin-bottom:200px;">
       <div class="message-content">
-        Kannst du mir ein gelungenes Projekt nennen?
+       Kannst du mir ein reales Beispielfür Stärken nennen?
       </div>
     </div>
     <div class="message assistant" >
