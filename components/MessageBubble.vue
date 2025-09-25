@@ -27,7 +27,7 @@
     </div>
     <div class="message assistant" style="margin-bottom:200px;">
       <div class="message-content">
-       Kannst du mir ein reales Beispielfür Stärken nennen?
+        Haben Sie ein Beispiel aus der Praxis, das Ihre Stärken gut zeigt?
       </div>
     </div>
     <div class="message assistant" >
