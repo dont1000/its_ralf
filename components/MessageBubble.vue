@@ -27,17 +27,17 @@
     </div>
     <div class="message assistant" style="margin-bottom:200px;">
       <div class="message-content">
-        oder: Was sind deine Stärken? 
+        Kannst du mir ein gelungenes Projekt nennen?
       </div>
     </div>
     <div class="message assistant" >
       <div class="message-content">
-        Zum Beispiel: Was war ein tolles Projekt?
+        Was sind deine Stärken?
       </div>
     </div>
     <div class="message assistant" >
       <div class="message-content">
-        Hi 👋 Frag mich gern nach meinen Stärken, meiner Motivation oder meiner Erfahrung.  
+        Hi 👋 Frag mich gern nach meinen Stärken, meiner Motivation oder meiner Erfahrung, zum Beispiel:  
       </div>
     </div>
   </div>
