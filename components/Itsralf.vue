@@ -41,7 +41,7 @@
                 Ich arbeite seit über 20 Jahren an webbasierten Lösungen ;) - von der Entwicklung über Teamführung bis hin zur Rolle als Product Owner.
               </p>
               <p>
-                Damit du mich besser kennenlernen kannst, habe ich diesen Chatbot entwickelt: Mit RalfBot erhaälst du direkt Antworten auf die gängigsten <span class="highlight">Interviewfragen</span> zu <span class="highlight">Stärken</span>, <span class="highlight">Motivation</span> und <span class="highlight">Erfahrung</span>.
+                Damit sie mich besser kennenlernen können, habe ich diesen Chatbot entwickelt: Mit RalfBot erhalten sie direkt Antworten auf die gängigsten <span class="highlight">Interviewfragen</span> zu Stärken, Motivation und Erfahrung.
               </p>
 
              <!--  <p>
